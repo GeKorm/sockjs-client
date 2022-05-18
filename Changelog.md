@@ -1,3 +1,9 @@
+2.0.0
+==
+Fixes
+- **[BREAKING]** Remove `lib/shims.js` to fix errors introduced in the build-in prototypes by shims
+targeting very old environments. Drops support for very old browsers like IE8 or Firefox 20.
+
 1.6.0
 ==
 Fixes

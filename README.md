@@ -1,5 +1,33 @@
+# SockJS-client fork
 
-# SockJS-client
+## This fork removes ancient shims
+
+The shims originally in lib/shims.js target very old or specific environments, **and they also contain 
+bugs**. Because they modify the Array.prototype for example, these can break your application 
+regardless of your usage of sockjs-client.
+
+## For example, if you don't use this fork, then this code anywhere in your application will throw a TypeError
+
+```javascript
+[].forEach(async () => {});
+```
+This is caused by line https://github.com/sockjs/sockjs-client/blob/main/lib/shims.js#L273
+
+## Installation
+
+### Yarn
+```shell
+yarn add @gekorm/sockjs-client
+```
+
+### Npm
+```shell
+npm install @gekorm/sockjs-client
+```
+
+________
+
+### Original README
 
 [![npm version](https://img.shields.io/npm/v/sockjs-client.svg?style=flat-square)](https://www.npmjs.com/package/sockjs-client)[![Dependencies](https://img.shields.io/librariesio/release/npm/sockjs-client.svg?style=flat-square)](https://libraries.io/npm/sockjs-client)[![Chat](https://img.shields.io/badge/Chat-gitter.im-blue.svg?style=flat-square)](https://gitter.im/sockjs/sockjs-client)[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg?style=flat-square)](CODE_OF_CONDUCT.md)
 [![BrowserStack Status](https://automate.browserstack.com/badge.svg?badge_key=N3V0cStKM3RtUy9Bb2l2cHFhMVdobTZnUitBZ1lLcUkwYnl2TWgyMHppQT0tLWxncU5UeTdLb0Rqc1VQQTI5SklRelE9PQ==--596ccf9d3cd2f462f1043ee6803a9405e00446ac)](https://automate.browserstack.com/public-build/N3V0cStKM3RtUy9Bb2l2cHFhMVdobTZnUitBZ1lLcUkwYnl2TWgyMHppQT0tLWxncU5UeTdLb0Rqc1VQQTI5SklRelE9PQ==--596ccf9d3cd2f462f1043ee6803a9405e00446ac)

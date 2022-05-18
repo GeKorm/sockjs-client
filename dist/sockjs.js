@@ -1,4 +1,4 @@
-/* sockjs-client v1.6.0 | http://sockjs.org | MIT license */
+/* sockjs-client v2.0.0 | http://sockjs.org | MIT license */
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.SockJS = f()}})(function(){var define,module,exports;return (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 (function (global){(function (){
 'use strict';
@@ -14,7 +14,7 @@ if ('_sockjs_onload' in global) {
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"./main":14,"./transport-list":16}],2:[function(require,module,exports){
+},{"./main":14,"./transport-list":15}],2:[function(require,module,exports){
 'use strict';
 
 var inherits = require('inherits')
@@ -33,7 +33,7 @@ inherits(CloseEvent, Event);
 
 module.exports = CloseEvent;
 
-},{"./event":4,"inherits":57}],3:[function(require,module,exports){
+},{"./event":4,"inherits":56}],3:[function(require,module,exports){
 'use strict';
 
 var inherits = require('inherits')
@@ -92,7 +92,7 @@ EventEmitter.prototype.removeListener = EventTarget.prototype.removeEventListene
 
 module.exports.EventEmitter = EventEmitter;
 
-},{"./eventtarget":5,"inherits":57}],4:[function(require,module,exports){
+},{"./eventtarget":5,"inherits":56}],4:[function(require,module,exports){
 'use strict';
 
 function Event(eventType) {
@@ -197,7 +197,7 @@ inherits(TransportMessageEvent, Event);
 
 module.exports = TransportMessageEvent;
 
-},{"./event":4,"inherits":57}],7:[function(require,module,exports){
+},{"./event":4,"inherits":56}],7:[function(require,module,exports){
 'use strict';
 
 var iframeUtils = require('./utils/iframe')
@@ -225,7 +225,7 @@ FacadeJS.prototype._close = function() {
 
 module.exports = FacadeJS;
 
-},{"./utils/iframe":47}],8:[function(require,module,exports){
+},{"./utils/iframe":46}],8:[function(require,module,exports){
 (function (process){(function (){
 'use strict';
 
@@ -331,7 +331,7 @@ module.exports = function(SockJS, availableTransports) {
 
 }).call(this)}).call(this,{ env: {} })
 
-},{"./facade":7,"./info-iframe-receiver":10,"./location":13,"./utils/event":46,"./utils/iframe":47,"./utils/url":52,"debug":55}],9:[function(require,module,exports){
+},{"./facade":7,"./info-iframe-receiver":10,"./location":13,"./utils/event":45,"./utils/iframe":46,"./utils/url":51,"debug":54}],9:[function(require,module,exports){
 (function (process){(function (){
 'use strict';
 
@@ -384,7 +384,7 @@ module.exports = InfoAjax;
 
 }).call(this)}).call(this,{ env: {} })
 
-},{"./utils/object":49,"debug":55,"events":3,"inherits":57}],10:[function(require,module,exports){
+},{"./utils/object":48,"debug":54,"events":3,"inherits":56}],10:[function(require,module,exports){
 'use strict';
 
 var inherits = require('inherits')
@@ -418,7 +418,7 @@ InfoReceiverIframe.prototype.close = function() {
 
 module.exports = InfoReceiverIframe;
 
-},{"./info-ajax":9,"./transport/sender/xhr-local":37,"events":3,"inherits":57}],11:[function(require,module,exports){
+},{"./info-ajax":9,"./transport/sender/xhr-local":36,"events":3,"inherits":56}],11:[function(require,module,exports){
 (function (process,global){(function (){
 'use strict';
 
@@ -491,7 +491,7 @@ module.exports = InfoIframe;
 
 }).call(this)}).call(this,{ env: {} },typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"./info-iframe-receiver":10,"./transport/iframe":22,"./utils/event":46,"debug":55,"events":3,"inherits":57}],12:[function(require,module,exports){
+},{"./info-iframe-receiver":10,"./transport/iframe":21,"./utils/event":45,"debug":54,"events":3,"inherits":56}],12:[function(require,module,exports){
 (function (process){(function (){
 'use strict';
 
@@ -585,7 +585,7 @@ module.exports = InfoReceiver;
 
 }).call(this)}).call(this,{ env: {} })
 
-},{"./info-ajax":9,"./info-iframe":11,"./transport/sender/xdr":34,"./transport/sender/xhr-cors":35,"./transport/sender/xhr-fake":36,"./transport/sender/xhr-local":37,"./utils/url":52,"debug":55,"events":3,"inherits":57}],13:[function(require,module,exports){
+},{"./info-ajax":9,"./info-iframe":11,"./transport/sender/xdr":33,"./transport/sender/xhr-cors":34,"./transport/sender/xhr-fake":35,"./transport/sender/xhr-local":36,"./utils/url":51,"debug":54,"events":3,"inherits":56}],13:[function(require,module,exports){
 (function (global){(function (){
 'use strict';
 
@@ -603,8 +603,6 @@ module.exports = global.location || {
 },{}],14:[function(require,module,exports){
 (function (process,global){(function (){
 'use strict';
-
-require('./shims');
 
 var URL = require('url-parse')
   , inherits = require('inherits')
@@ -993,461 +991,7 @@ module.exports = function(availableTransports) {
 
 }).call(this)}).call(this,{ env: {} },typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"./event/close":2,"./event/event":4,"./event/eventtarget":5,"./event/trans-message":6,"./iframe-bootstrap":8,"./info-receiver":12,"./location":13,"./shims":15,"./utils/browser":44,"./utils/escape":45,"./utils/event":46,"./utils/log":48,"./utils/object":49,"./utils/random":50,"./utils/transport":51,"./utils/url":52,"./version":53,"debug":55,"inherits":57,"url-parse":60}],15:[function(require,module,exports){
-/* eslint-disable */
-/* jscs: disable */
-'use strict';
-
-// pulled specific shims from https://github.com/es-shims/es5-shim
-
-var ArrayPrototype = Array.prototype;
-var ObjectPrototype = Object.prototype;
-var FunctionPrototype = Function.prototype;
-var StringPrototype = String.prototype;
-var array_slice = ArrayPrototype.slice;
-
-var _toString = ObjectPrototype.toString;
-var isFunction = function (val) {
-    return ObjectPrototype.toString.call(val) === '[object Function]';
-};
-var isArray = function isArray(obj) {
-    return _toString.call(obj) === '[object Array]';
-};
-var isString = function isString(obj) {
-    return _toString.call(obj) === '[object String]';
-};
-
-var supportsDescriptors = Object.defineProperty && (function () {
-    try {
-        Object.defineProperty({}, 'x', {});
-        return true;
-    } catch (e) { /* this is ES3 */
-        return false;
-    }
-}());
-
-// Define configurable, writable and non-enumerable props
-// if they don't exist.
-var defineProperty;
-if (supportsDescriptors) {
-    defineProperty = function (object, name, method, forceAssign) {
-        if (!forceAssign && (name in object)) { return; }
-        Object.defineProperty(object, name, {
-            configurable: true,
-            enumerable: false,
-            writable: true,
-            value: method
-        });
-    };
-} else {
-    defineProperty = function (object, name, method, forceAssign) {
-        if (!forceAssign && (name in object)) { return; }
-        object[name] = method;
-    };
-}
-var defineProperties = function (object, map, forceAssign) {
-    for (var name in map) {
-        if (ObjectPrototype.hasOwnProperty.call(map, name)) {
-          defineProperty(object, name, map[name], forceAssign);
-        }
-    }
-};
-
-var toObject = function (o) {
-    if (o == null) { // this matches both null and undefined
-        throw new TypeError("can't convert " + o + ' to object');
-    }
-    return Object(o);
-};
-
-//
-// Util
-// ======
-//
-
-// ES5 9.4
-// http://es5.github.com/#x9.4
-// http://jsperf.com/to-integer
-
-function toInteger(num) {
-    var n = +num;
-    if (n !== n) { // isNaN
-        n = 0;
-    } else if (n !== 0 && n !== (1 / 0) && n !== -(1 / 0)) {
-        n = (n > 0 || -1) * Math.floor(Math.abs(n));
-    }
-    return n;
-}
-
-function ToUint32(x) {
-    return x >>> 0;
-}
-
-//
-// Function
-// ========
-//
-
-// ES-5 15.3.4.5
-// http://es5.github.com/#x15.3.4.5
-
-function Empty() {}
-
-defineProperties(FunctionPrototype, {
-    bind: function bind(that) { // .length is 1
-        // 1. Let Target be the this value.
-        var target = this;
-        // 2. If IsCallable(Target) is false, throw a TypeError exception.
-        if (!isFunction(target)) {
-            throw new TypeError('Function.prototype.bind called on incompatible ' + target);
-        }
-        // 3. Let A be a new (possibly empty) internal list of all of the
-        //   argument values provided after thisArg (arg1, arg2 etc), in order.
-        // XXX slicedArgs will stand in for "A" if used
-        var args = array_slice.call(arguments, 1); // for normal call
-        // 4. Let F be a new native ECMAScript object.
-        // 11. Set the [[Prototype]] internal property of F to the standard
-        //   built-in Function prototype object as specified in 15.3.3.1.
-        // 12. Set the [[Call]] internal property of F as described in
-        //   15.3.4.5.1.
-        // 13. Set the [[Construct]] internal property of F as described in
-        //   15.3.4.5.2.
-        // 14. Set the [[HasInstance]] internal property of F as described in
-        //   15.3.4.5.3.
-        var binder = function () {
-
-            if (this instanceof bound) {
-                // 15.3.4.5.2 [[Construct]]
-                // When the [[Construct]] internal method of a function object,
-                // F that was created using the bind function is called with a
-                // list of arguments ExtraArgs, the following steps are taken:
-                // 1. Let target be the value of F's [[TargetFunction]]
-                //   internal property.
-                // 2. If target has no [[Construct]] internal method, a
-                //   TypeError exception is thrown.
-                // 3. Let boundArgs be the value of F's [[BoundArgs]] internal
-                //   property.
-                // 4. Let args be a new list containing the same values as the
-                //   list boundArgs in the same order followed by the same
-                //   values as the list ExtraArgs in the same order.
-                // 5. Return the result of calling the [[Construct]] internal
-                //   method of target providing args as the arguments.
-
-                var result = target.apply(
-                    this,
-                    args.concat(array_slice.call(arguments))
-                );
-                if (Object(result) === result) {
-                    return result;
-                }
-                return this;
-
-            } else {
-                // 15.3.4.5.1 [[Call]]
-                // When the [[Call]] internal method of a function object, F,
-                // which was created using the bind function is called with a
-                // this value and a list of arguments ExtraArgs, the following
-                // steps are taken:
-                // 1. Let boundArgs be the value of F's [[BoundArgs]] internal
-                //   property.
-                // 2. Let boundThis be the value of F's [[BoundThis]] internal
-                //   property.
-                // 3. Let target be the value of F's [[TargetFunction]] internal
-                //   property.
-                // 4. Let args be a new list containing the same values as the
-                //   list boundArgs in the same order followed by the same
-                //   values as the list ExtraArgs in the same order.
-                // 5. Return the result of calling the [[Call]] internal method
-                //   of target providing boundThis as the this value and
-                //   providing args as the arguments.
-
-                // equiv: target.call(this, ...boundArgs, ...args)
-                return target.apply(
-                    that,
-                    args.concat(array_slice.call(arguments))
-                );
-
-            }
-
-        };
-
-        // 15. If the [[Class]] internal property of Target is "Function", then
-        //     a. Let L be the length property of Target minus the length of A.
-        //     b. Set the length own property of F to either 0 or L, whichever is
-        //       larger.
-        // 16. Else set the length own property of F to 0.
-
-        var boundLength = Math.max(0, target.length - args.length);
-
-        // 17. Set the attributes of the length own property of F to the values
-        //   specified in 15.3.5.1.
-        var boundArgs = [];
-        for (var i = 0; i < boundLength; i++) {
-            boundArgs.push('$' + i);
-        }
-
-        // XXX Build a dynamic function with desired amount of arguments is the only
-        // way to set the length property of a function.
-        // In environments where Content Security Policies enabled (Chrome extensions,
-        // for ex.) all use of eval or Function costructor throws an exception.
-        // However in all of these environments Function.prototype.bind exists
-        // and so this code will never be executed.
-        var bound = Function('binder', 'return function (' + boundArgs.join(',') + '){ return binder.apply(this, arguments); }')(binder);
-
-        if (target.prototype) {
-            Empty.prototype = target.prototype;
-            bound.prototype = new Empty();
-            // Clean up dangling references.
-            Empty.prototype = null;
-        }
-
-        // TODO
-        // 18. Set the [[Extensible]] internal property of F to true.
-
-        // TODO
-        // 19. Let thrower be the [[ThrowTypeError]] function Object (13.2.3).
-        // 20. Call the [[DefineOwnProperty]] internal method of F with
-        //   arguments "caller", PropertyDescriptor {[[Get]]: thrower, [[Set]]:
-        //   thrower, [[Enumerable]]: false, [[Configurable]]: false}, and
-        //   false.
-        // 21. Call the [[DefineOwnProperty]] internal method of F with
-        //   arguments "arguments", PropertyDescriptor {[[Get]]: thrower,
-        //   [[Set]]: thrower, [[Enumerable]]: false, [[Configurable]]: false},
-        //   and false.
-
-        // TODO
-        // NOTE Function objects created using Function.prototype.bind do not
-        // have a prototype property or the [[Code]], [[FormalParameters]], and
-        // [[Scope]] internal properties.
-        // XXX can't delete prototype in pure-js.
-
-        // 22. Return F.
-        return bound;
-    }
-});
-
-//
-// Array
-// =====
-//
-
-// ES5 15.4.3.2
-// http://es5.github.com/#x15.4.3.2
-// https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/isArray
-defineProperties(Array, { isArray: isArray });
-
-
-var boxedString = Object('a');
-var splitString = boxedString[0] !== 'a' || !(0 in boxedString);
-
-var properlyBoxesContext = function properlyBoxed(method) {
-    // Check node 0.6.21 bug where third parameter is not boxed
-    var properlyBoxesNonStrict = true;
-    var properlyBoxesStrict = true;
-    if (method) {
-        method.call('foo', function (_, __, context) {
-            if (typeof context !== 'object') { properlyBoxesNonStrict = false; }
-        });
-
-        method.call([1], function () {
-            'use strict';
-            properlyBoxesStrict = typeof this === 'string';
-        }, 'x');
-    }
-    return !!method && properlyBoxesNonStrict && properlyBoxesStrict;
-};
-
-defineProperties(ArrayPrototype, {
-    forEach: function forEach(fun /*, thisp*/) {
-        var object = toObject(this),
-            self = splitString && isString(this) ? this.split('') : object,
-            thisp = arguments[1],
-            i = -1,
-            length = self.length >>> 0;
-
-        // If no callback function or if callback is not a callable function
-        if (!isFunction(fun)) {
-            throw new TypeError(); // TODO message
-        }
-
-        while (++i < length) {
-            if (i in self) {
-                // Invoke the callback function with call, passing arguments:
-                // context, property value, property key, thisArg object
-                // context
-                fun.call(thisp, self[i], i, object);
-            }
-        }
-    }
-}, !properlyBoxesContext(ArrayPrototype.forEach));
-
-// ES5 15.4.4.14
-// http://es5.github.com/#x15.4.4.14
-// https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/indexOf
-var hasFirefox2IndexOfBug = Array.prototype.indexOf && [0, 1].indexOf(1, 2) !== -1;
-defineProperties(ArrayPrototype, {
-    indexOf: function indexOf(sought /*, fromIndex */ ) {
-        var self = splitString && isString(this) ? this.split('') : toObject(this),
-            length = self.length >>> 0;
-
-        if (!length) {
-            return -1;
-        }
-
-        var i = 0;
-        if (arguments.length > 1) {
-            i = toInteger(arguments[1]);
-        }
-
-        // handle negative indices
-        i = i >= 0 ? i : Math.max(0, length + i);
-        for (; i < length; i++) {
-            if (i in self && self[i] === sought) {
-                return i;
-            }
-        }
-        return -1;
-    }
-}, hasFirefox2IndexOfBug);
-
-//
-// String
-// ======
-//
-
-// ES5 15.5.4.14
-// http://es5.github.com/#x15.5.4.14
-
-// [bugfix, IE lt 9, firefox 4, Konqueror, Opera, obscure browsers]
-// Many browsers do not split properly with regular expressions or they
-// do not perform the split correctly under obscure conditions.
-// See http://blog.stevenlevithan.com/archives/cross-browser-split
-// I've tested in many browsers and this seems to cover the deviant ones:
-//    'ab'.split(/(?:ab)*/) should be ["", ""], not [""]
-//    '.'.split(/(.?)(.?)/) should be ["", ".", "", ""], not ["", ""]
-//    'tesst'.split(/(s)*/) should be ["t", undefined, "e", "s", "t"], not
-//       [undefined, "t", undefined, "e", ...]
-//    ''.split(/.?/) should be [], not [""]
-//    '.'.split(/()()/) should be ["."], not ["", "", "."]
-
-var string_split = StringPrototype.split;
-if (
-    'ab'.split(/(?:ab)*/).length !== 2 ||
-    '.'.split(/(.?)(.?)/).length !== 4 ||
-    'tesst'.split(/(s)*/)[1] === 't' ||
-    'test'.split(/(?:)/, -1).length !== 4 ||
-    ''.split(/.?/).length ||
-    '.'.split(/()()/).length > 1
-) {
-    (function () {
-        var compliantExecNpcg = /()??/.exec('')[1] === void 0; // NPCG: nonparticipating capturing group
-
-        StringPrototype.split = function (separator, limit) {
-            var string = this;
-            if (separator === void 0 && limit === 0) {
-                return [];
-            }
-
-            // If `separator` is not a regex, use native split
-            if (_toString.call(separator) !== '[object RegExp]') {
-                return string_split.call(this, separator, limit);
-            }
-
-            var output = [],
-                flags = (separator.ignoreCase ? 'i' : '') +
-                        (separator.multiline  ? 'm' : '') +
-                        (separator.extended   ? 'x' : '') + // Proposed for ES6
-                        (separator.sticky     ? 'y' : ''), // Firefox 3+
-                lastLastIndex = 0,
-                // Make `global` and avoid `lastIndex` issues by working with a copy
-                separator2, match, lastIndex, lastLength;
-            separator = new RegExp(separator.source, flags + 'g');
-            string += ''; // Type-convert
-            if (!compliantExecNpcg) {
-                // Doesn't need flags gy, but they don't hurt
-                separator2 = new RegExp('^' + separator.source + '$(?!\\s)', flags);
-            }
-            /* Values for `limit`, per the spec:
-             * If undefined: 4294967295 // Math.pow(2, 32) - 1
-             * If 0, Infinity, or NaN: 0
-             * If positive number: limit = Math.floor(limit); if (limit > 4294967295) limit -= 4294967296;
-             * If negative number: 4294967296 - Math.floor(Math.abs(limit))
-             * If other: Type-convert, then use the above rules
-             */
-            limit = limit === void 0 ?
-                -1 >>> 0 : // Math.pow(2, 32) - 1
-                ToUint32(limit);
-            while (match = separator.exec(string)) {
-                // `separator.lastIndex` is not reliable cross-browser
-                lastIndex = match.index + match[0].length;
-                if (lastIndex > lastLastIndex) {
-                    output.push(string.slice(lastLastIndex, match.index));
-                    // Fix browsers whose `exec` methods don't consistently return `undefined` for
-                    // nonparticipating capturing groups
-                    if (!compliantExecNpcg && match.length > 1) {
-                        match[0].replace(separator2, function () {
-                            for (var i = 1; i < arguments.length - 2; i++) {
-                                if (arguments[i] === void 0) {
-                                    match[i] = void 0;
-                                }
-                            }
-                        });
-                    }
-                    if (match.length > 1 && match.index < string.length) {
-                        ArrayPrototype.push.apply(output, match.slice(1));
-                    }
-                    lastLength = match[0].length;
-                    lastLastIndex = lastIndex;
-                    if (output.length >= limit) {
-                        break;
-                    }
-                }
-                if (separator.lastIndex === match.index) {
-                    separator.lastIndex++; // Avoid an infinite loop
-                }
-            }
-            if (lastLastIndex === string.length) {
-                if (lastLength || !separator.test('')) {
-                    output.push('');
-                }
-            } else {
-                output.push(string.slice(lastLastIndex));
-            }
-            return output.length > limit ? output.slice(0, limit) : output;
-        };
-    }());
-
-// [bugfix, chrome]
-// If separator is undefined, then the result array contains just one String,
-// which is the this value (converted to a String). If limit is not undefined,
-// then the output array is truncated so that it contains no more than limit
-// elements.
-// "0".split(undefined, 0) -> []
-} else if ('0'.split(void 0, 0).length) {
-    StringPrototype.split = function split(separator, limit) {
-        if (separator === void 0 && limit === 0) { return []; }
-        return string_split.call(this, separator, limit);
-    };
-}
-
-// ECMA-262, 3rd B.2.3
-// Not an ECMAScript standard, although ECMAScript 3rd Edition has a
-// non-normative section suggesting uniform semantics and it should be
-// normalized across all browsers
-// [bugfix, IE lt 9] IE < 9 substr() with negative value not working in IE
-var string_substr = StringPrototype.substr;
-var hasNegativeSubstrBug = ''.substr && '0b'.substr(-1) !== 'b';
-defineProperties(StringPrototype, {
-    substr: function substr(start, length) {
-        return string_substr.call(
-            this,
-            start < 0 ? ((start = this.length + start) < 0 ? 0 : start) : start,
-            length
-        );
-    }
-}, hasNegativeSubstrBug);
-
-},{}],16:[function(require,module,exports){
+},{"./event/close":2,"./event/event":4,"./event/eventtarget":5,"./event/trans-message":6,"./iframe-bootstrap":8,"./info-receiver":12,"./location":13,"./utils/browser":43,"./utils/escape":44,"./utils/event":45,"./utils/log":47,"./utils/object":48,"./utils/random":49,"./utils/transport":50,"./utils/url":51,"./version":52,"debug":54,"inherits":56,"url-parse":59}],15:[function(require,module,exports){
 'use strict';
 
 module.exports = [
@@ -1467,7 +1011,7 @@ module.exports = [
 , require('./transport/jsonp-polling')
 ];
 
-},{"./transport/eventsource":20,"./transport/htmlfile":21,"./transport/jsonp-polling":23,"./transport/lib/iframe-wrap":26,"./transport/websocket":38,"./transport/xdr-polling":39,"./transport/xdr-streaming":40,"./transport/xhr-polling":41,"./transport/xhr-streaming":42}],17:[function(require,module,exports){
+},{"./transport/eventsource":19,"./transport/htmlfile":20,"./transport/jsonp-polling":22,"./transport/lib/iframe-wrap":25,"./transport/websocket":37,"./transport/xdr-polling":38,"./transport/xdr-streaming":39,"./transport/xhr-polling":40,"./transport/xhr-streaming":41}],16:[function(require,module,exports){
 (function (process,global){(function (){
 'use strict';
 
@@ -1665,13 +1209,13 @@ module.exports = AbstractXHRObject;
 
 }).call(this)}).call(this,{ env: {} },typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"../../utils/event":46,"../../utils/url":52,"debug":55,"events":3,"inherits":57}],18:[function(require,module,exports){
+},{"../../utils/event":45,"../../utils/url":51,"debug":54,"events":3,"inherits":56}],17:[function(require,module,exports){
 (function (global){(function (){
 module.exports = global.EventSource;
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],19:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 (function (global){(function (){
 'use strict';
 
@@ -1686,7 +1230,7 @@ if (Driver) {
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],20:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 'use strict';
 
 var inherits = require('inherits')
@@ -1715,7 +1259,7 @@ EventSourceTransport.roundTrips = 2;
 
 module.exports = EventSourceTransport;
 
-},{"./lib/ajax-based":24,"./receiver/eventsource":29,"./sender/xhr-cors":35,"eventsource":18,"inherits":57}],21:[function(require,module,exports){
+},{"./lib/ajax-based":23,"./receiver/eventsource":28,"./sender/xhr-cors":34,"eventsource":17,"inherits":56}],20:[function(require,module,exports){
 'use strict';
 
 var inherits = require('inherits')
@@ -1742,7 +1286,7 @@ HtmlFileTransport.roundTrips = 2;
 
 module.exports = HtmlFileTransport;
 
-},{"./lib/ajax-based":24,"./receiver/htmlfile":30,"./sender/xhr-local":37,"inherits":57}],22:[function(require,module,exports){
+},{"./lib/ajax-based":23,"./receiver/htmlfile":29,"./sender/xhr-local":36,"inherits":56}],21:[function(require,module,exports){
 (function (process){(function (){
 'use strict';
 
@@ -1887,7 +1431,7 @@ module.exports = IframeTransport;
 
 }).call(this)}).call(this,{ env: {} })
 
-},{"../utils/event":46,"../utils/iframe":47,"../utils/random":50,"../utils/url":52,"../version":53,"debug":55,"events":3,"inherits":57}],23:[function(require,module,exports){
+},{"../utils/event":45,"../utils/iframe":46,"../utils/random":49,"../utils/url":51,"../version":52,"debug":54,"events":3,"inherits":56}],22:[function(require,module,exports){
 (function (global){(function (){
 'use strict';
 
@@ -1926,7 +1470,7 @@ module.exports = JsonPTransport;
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"./lib/sender-receiver":28,"./receiver/jsonp":31,"./sender/jsonp":33,"inherits":57}],24:[function(require,module,exports){
+},{"./lib/sender-receiver":27,"./receiver/jsonp":30,"./sender/jsonp":32,"inherits":56}],23:[function(require,module,exports){
 (function (process){(function (){
 'use strict';
 
@@ -1980,7 +1524,7 @@ module.exports = AjaxBasedTransport;
 
 }).call(this)}).call(this,{ env: {} })
 
-},{"../../utils/url":52,"./sender-receiver":28,"debug":55,"inherits":57}],25:[function(require,module,exports){
+},{"../../utils/url":51,"./sender-receiver":27,"debug":54,"inherits":56}],24:[function(require,module,exports){
 (function (process){(function (){
 'use strict';
 
@@ -2072,7 +1616,7 @@ module.exports = BufferedSender;
 
 }).call(this)}).call(this,{ env: {} })
 
-},{"debug":55,"events":3,"inherits":57}],26:[function(require,module,exports){
+},{"debug":54,"events":3,"inherits":56}],25:[function(require,module,exports){
 (function (global){(function (){
 'use strict';
 
@@ -2110,7 +1654,7 @@ module.exports = function(transport) {
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"../../utils/object":49,"../iframe":22,"inherits":57}],27:[function(require,module,exports){
+},{"../../utils/object":48,"../iframe":21,"inherits":56}],26:[function(require,module,exports){
 (function (process){(function (){
 'use strict';
 
@@ -2172,7 +1716,7 @@ module.exports = Polling;
 
 }).call(this)}).call(this,{ env: {} })
 
-},{"debug":55,"events":3,"inherits":57}],28:[function(require,module,exports){
+},{"debug":54,"events":3,"inherits":56}],27:[function(require,module,exports){
 (function (process){(function (){
 'use strict';
 
@@ -2222,7 +1766,7 @@ module.exports = SenderReceiver;
 
 }).call(this)}).call(this,{ env: {} })
 
-},{"../../utils/url":52,"./buffered-sender":25,"./polling":27,"debug":55,"inherits":57}],29:[function(require,module,exports){
+},{"../../utils/url":51,"./buffered-sender":24,"./polling":26,"debug":54,"inherits":56}],28:[function(require,module,exports){
 (function (process){(function (){
 'use strict';
 
@@ -2290,7 +1834,7 @@ module.exports = EventSourceReceiver;
 
 }).call(this)}).call(this,{ env: {} })
 
-},{"debug":55,"events":3,"eventsource":18,"inherits":57}],30:[function(require,module,exports){
+},{"debug":54,"events":3,"eventsource":17,"inherits":56}],29:[function(require,module,exports){
 (function (process,global){(function (){
 'use strict';
 
@@ -2382,7 +1926,7 @@ module.exports = HtmlfileReceiver;
 
 }).call(this)}).call(this,{ env: {} },typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"../../utils/iframe":47,"../../utils/random":50,"../../utils/url":52,"debug":55,"events":3,"inherits":57}],31:[function(require,module,exports){
+},{"../../utils/iframe":46,"../../utils/random":49,"../../utils/url":51,"debug":54,"events":3,"inherits":56}],30:[function(require,module,exports){
 (function (process,global){(function (){
 'use strict';
 
@@ -2570,7 +2114,7 @@ module.exports = JsonpReceiver;
 
 }).call(this)}).call(this,{ env: {} },typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"../../utils/browser":44,"../../utils/iframe":47,"../../utils/random":50,"../../utils/url":52,"debug":55,"events":3,"inherits":57}],32:[function(require,module,exports){
+},{"../../utils/browser":43,"../../utils/iframe":46,"../../utils/random":49,"../../utils/url":51,"debug":54,"events":3,"inherits":56}],31:[function(require,module,exports){
 (function (process){(function (){
 'use strict';
 
@@ -2645,7 +2189,7 @@ module.exports = XhrReceiver;
 
 }).call(this)}).call(this,{ env: {} })
 
-},{"debug":55,"events":3,"inherits":57}],33:[function(require,module,exports){
+},{"debug":54,"events":3,"inherits":56}],32:[function(require,module,exports){
 (function (process,global){(function (){
 'use strict';
 
@@ -2749,7 +2293,7 @@ module.exports = function(url, payload, callback) {
 
 }).call(this)}).call(this,{ env: {} },typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"../../utils/random":50,"../../utils/url":52,"debug":55}],34:[function(require,module,exports){
+},{"../../utils/random":49,"../../utils/url":51,"debug":54}],33:[function(require,module,exports){
 (function (process,global){(function (){
 'use strict';
 
@@ -2857,7 +2401,7 @@ module.exports = XDRObject;
 
 }).call(this)}).call(this,{ env: {} },typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"../../utils/browser":44,"../../utils/event":46,"../../utils/url":52,"debug":55,"events":3,"inherits":57}],35:[function(require,module,exports){
+},{"../../utils/browser":43,"../../utils/event":45,"../../utils/url":51,"debug":54,"events":3,"inherits":56}],34:[function(require,module,exports){
 'use strict';
 
 var inherits = require('inherits')
@@ -2874,7 +2418,7 @@ XHRCorsObject.enabled = XhrDriver.enabled && XhrDriver.supportsCORS;
 
 module.exports = XHRCorsObject;
 
-},{"../driver/xhr":17,"inherits":57}],36:[function(require,module,exports){
+},{"../driver/xhr":16,"inherits":56}],35:[function(require,module,exports){
 'use strict';
 
 var EventEmitter = require('events').EventEmitter
@@ -2900,7 +2444,7 @@ XHRFake.timeout = 2000;
 
 module.exports = XHRFake;
 
-},{"events":3,"inherits":57}],37:[function(require,module,exports){
+},{"events":3,"inherits":56}],36:[function(require,module,exports){
 'use strict';
 
 var inherits = require('inherits')
@@ -2919,7 +2463,7 @@ XHRLocalObject.enabled = XhrDriver.enabled;
 
 module.exports = XHRLocalObject;
 
-},{"../driver/xhr":17,"inherits":57}],38:[function(require,module,exports){
+},{"../driver/xhr":16,"inherits":56}],37:[function(require,module,exports){
 (function (process){(function (){
 'use strict';
 
@@ -3023,7 +2567,7 @@ module.exports = WebSocketTransport;
 
 }).call(this)}).call(this,{ env: {} })
 
-},{"../utils/event":46,"../utils/url":52,"./driver/websocket":19,"debug":55,"events":3,"inherits":57}],39:[function(require,module,exports){
+},{"../utils/event":45,"../utils/url":51,"./driver/websocket":18,"debug":54,"events":3,"inherits":56}],38:[function(require,module,exports){
 'use strict';
 
 var inherits = require('inherits')
@@ -3048,7 +2592,7 @@ XdrPollingTransport.roundTrips = 2; // preflight, ajax
 
 module.exports = XdrPollingTransport;
 
-},{"./lib/ajax-based":24,"./receiver/xhr":32,"./sender/xdr":34,"./xdr-streaming":40,"inherits":57}],40:[function(require,module,exports){
+},{"./lib/ajax-based":23,"./receiver/xhr":31,"./sender/xdr":33,"./xdr-streaming":39,"inherits":56}],39:[function(require,module,exports){
 'use strict';
 
 var inherits = require('inherits')
@@ -3082,7 +2626,7 @@ XdrStreamingTransport.roundTrips = 2; // preflight, ajax
 
 module.exports = XdrStreamingTransport;
 
-},{"./lib/ajax-based":24,"./receiver/xhr":32,"./sender/xdr":34,"inherits":57}],41:[function(require,module,exports){
+},{"./lib/ajax-based":23,"./receiver/xhr":31,"./sender/xdr":33,"inherits":56}],40:[function(require,module,exports){
 'use strict';
 
 var inherits = require('inherits')
@@ -3117,7 +2661,7 @@ XhrPollingTransport.roundTrips = 2; // preflight, ajax
 
 module.exports = XhrPollingTransport;
 
-},{"./lib/ajax-based":24,"./receiver/xhr":32,"./sender/xhr-cors":35,"./sender/xhr-local":37,"inherits":57}],42:[function(require,module,exports){
+},{"./lib/ajax-based":23,"./receiver/xhr":31,"./sender/xhr-cors":34,"./sender/xhr-local":36,"inherits":56}],41:[function(require,module,exports){
 (function (global){(function (){
 'use strict';
 
@@ -3163,7 +2707,7 @@ module.exports = XhrStreamingTransport;
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"../utils/browser":44,"./lib/ajax-based":24,"./receiver/xhr":32,"./sender/xhr-cors":35,"./sender/xhr-local":37,"inherits":57}],43:[function(require,module,exports){
+},{"../utils/browser":43,"./lib/ajax-based":23,"./receiver/xhr":31,"./sender/xhr-cors":34,"./sender/xhr-local":36,"inherits":56}],42:[function(require,module,exports){
 (function (global){(function (){
 'use strict';
 
@@ -3185,7 +2729,7 @@ if (global.crypto && global.crypto.getRandomValues) {
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],44:[function(require,module,exports){
+},{}],43:[function(require,module,exports){
 (function (global){(function (){
 'use strict';
 
@@ -3217,7 +2761,7 @@ module.exports = {
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],45:[function(require,module,exports){
+},{}],44:[function(require,module,exports){
 'use strict';
 
 // Some extra characters that Chrome gets wrong, and substitutes with
@@ -3267,7 +2811,7 @@ module.exports = {
   }
 };
 
-},{}],46:[function(require,module,exports){
+},{}],45:[function(require,module,exports){
 (function (global){(function (){
 'use strict';
 
@@ -3345,7 +2889,7 @@ if (!isChromePackagedApp) {
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"./random":50}],47:[function(require,module,exports){
+},{"./random":49}],46:[function(require,module,exports){
 (function (process,global){(function (){
 'use strict';
 
@@ -3535,7 +3079,7 @@ if (global.document) {
 
 }).call(this)}).call(this,{ env: {} },typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"./browser":44,"./event":46,"debug":55}],48:[function(require,module,exports){
+},{"./browser":43,"./event":45,"debug":54}],47:[function(require,module,exports){
 (function (global){(function (){
 'use strict';
 
@@ -3558,7 +3102,7 @@ module.exports = logObject;
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],49:[function(require,module,exports){
+},{}],48:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -3584,7 +3128,7 @@ module.exports = {
   }
 };
 
-},{}],50:[function(require,module,exports){
+},{}],49:[function(require,module,exports){
 'use strict';
 
 var crypto = require('crypto');
@@ -3614,7 +3158,7 @@ module.exports = {
   }
 };
 
-},{"crypto":43}],51:[function(require,module,exports){
+},{"crypto":42}],50:[function(require,module,exports){
 (function (process){(function (){
 'use strict';
 
@@ -3669,7 +3213,7 @@ module.exports = function(availableTransports) {
 
 }).call(this)}).call(this,{ env: {} })
 
-},{"debug":55}],52:[function(require,module,exports){
+},{"debug":54}],51:[function(require,module,exports){
 (function (process){(function (){
 'use strict';
 
@@ -3725,10 +3269,10 @@ module.exports = {
 
 }).call(this)}).call(this,{ env: {} })
 
-},{"debug":55,"url-parse":60}],53:[function(require,module,exports){
-module.exports = '1.6.0';
+},{"debug":54,"url-parse":59}],52:[function(require,module,exports){
+module.exports = '2.0.0';
 
-},{}],54:[function(require,module,exports){
+},{}],53:[function(require,module,exports){
 /**
  * Helpers.
  */
@@ -3892,7 +3436,7 @@ function plural(ms, msAbs, n, name) {
   return Math.round(ms / n) + ' ' + name + (isPlural ? 's' : '');
 }
 
-},{}],55:[function(require,module,exports){
+},{}],54:[function(require,module,exports){
 (function (process){(function (){
 "use strict";
 
@@ -4077,7 +3621,7 @@ formatters.j = function (v) {
 
 }).call(this)}).call(this,{ env: {} })
 
-},{"./common":56}],56:[function(require,module,exports){
+},{"./common":55}],55:[function(require,module,exports){
 "use strict";
 
 /**
@@ -4328,7 +3872,7 @@ function setup(env) {
 module.exports = setup;
 
 
-},{"ms":54}],57:[function(require,module,exports){
+},{"ms":53}],56:[function(require,module,exports){
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
@@ -4357,7 +3901,7 @@ if (typeof Object.create === 'function') {
   }
 }
 
-},{}],58:[function(require,module,exports){
+},{}],57:[function(require,module,exports){
 'use strict';
 
 var has = Object.prototype.hasOwnProperty
@@ -4477,7 +4021,7 @@ function querystringify(obj, prefix) {
 exports.stringify = querystringify;
 exports.parse = querystring;
 
-},{}],59:[function(require,module,exports){
+},{}],58:[function(require,module,exports){
 'use strict';
 
 /**
@@ -4517,7 +4061,7 @@ module.exports = function required(port, protocol) {
   return port !== 0;
 };
 
-},{}],60:[function(require,module,exports){
+},{}],59:[function(require,module,exports){
 (function (global){(function (){
 'use strict';
 
@@ -5111,7 +4655,7 @@ module.exports = Url;
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"querystringify":58,"requires-port":59}]},{},[1])(1)
+},{"querystringify":57,"requires-port":58}]},{},[1])(1)
 });
 
 
